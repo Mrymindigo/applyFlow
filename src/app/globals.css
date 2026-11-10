@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+
+  /* Brand - Indigo */
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --primary-light: #EEF2FF;
+  --primary-muted: #C7D2FE;
+
+  /* Text */
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+
+  /* Border */
+  --border: #E2E8F0;
+
+  /* Sidebar Gradient */
+  --sidebar-start: #172554;
+  --sidebar-middle: #312E81;
+  --sidebar-end: #4338CA;
+
+  /* Status Colors */
+  --status-wishlist: #64748B;
+  --status-applied: #2563EB;
+  --status-interview: #7C3AED;
+  --status-test: #D97706;
+  --status-offer: #16A34A;
+  --status-rejected: #DC2626;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+
+  --font-sans: var(--font-inter);
+  --font-logo: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+.sidebar-gradient {
+  background: linear-gradient(160deg,
+      var(--sidebar-start) 0%,
+      var(--sidebar-middle) 55%,
+      var(--sidebar-end) 100%);
+}
+
+.result-box-gradient {
+
+
+  background: radial-gradient(
+    radial-gradient(circle at 20% 20%, #C4B5FD 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, #BAE6FD 0%, transparent 65%),
+    #FFFFFF);
+
+}
+
+::selection {
+  background-color: var(--primary-muted);
+  color: var(--text-primary);
+}
+
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+} */
