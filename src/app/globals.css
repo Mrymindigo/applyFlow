@@ -70,21 +70,23 @@ body {
       var(--sidebar-end) 100%);
 }
 
-.result-box-gradient {
-
-
-  background: radial-gradient(
-    radial-gradient(circle at 20% 20%, #C4B5FD 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, #BAE6FD 0%, transparent 65%),
-    #FFFFFF);
-
-}
-
 ::selection {
   background-color: var(--primary-muted);
   color: var(--text-primary);
 }
 
+@layer components {
+  .result-box-gradient {
+    background:
+      radial-gradient(ellipse at top left,
+        #DDD6FE 0%,
+        transparent 55%),
+      radial-gradient(ellipse at bottom right,
+        #BFDBFE 0%,
+        transparent 60%),
+      #FFFFFF;
+  }
+}
 
 /* @media (prefers-color-scheme: dark) {
   :root {

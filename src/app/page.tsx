@@ -4,12 +4,21 @@
 import Image from "next/image";
 import { useState } from 'react'
 import HeaderCalendar from '../components/layout/HeaderCalendar'
+import JobAppliedChart from '../components/layout/JobAppliedChart'
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { RiVideoOnAiFill } from "react-icons/ri";
 
+
+type Applications = {
+  id: number;
+  company: string;
+  status: "Applied" | "Interview" | "Rejected";
+};
+
+
 export default function Home() {
 
-  const [applications, setApplications] = useState([
+  const [applications, setApplications] = useState<Applications[]>([
     { id: 1, company: "Google", status: "Applied" },
     { id: 2, company: "Meta", status: "Interview" },
     { id: 3, company: "Amazon", status: "Applied" },
@@ -45,7 +54,7 @@ export default function Home() {
       {/* user status charts */}
       <div className="flex items-center w-full justify-center gap-16">
         {/* 1 */}
-        <div className="flex gap-4 w-[35%] result-box-gradient min-h-60 justify-center items-center rounded-3xl">
+        <div className="flex gap-4 w-[35%] min-h-60 justify-center items-center rounded-3xl shadow-[0_8px_30px_rgba(139,92,246,0.18)] result-box-gradient">
           <div className="flex flex-col gap-4 items-center">
             <div className=" flex items-center justify-center bg-[#76a9b0] rounded-full w-[60px] h-[60px]">
               <MdOutlineMarkEmailRead size={36} />
@@ -75,8 +84,8 @@ export default function Home() {
         </div>
 
         {/* 2 */}
-        <div className="w-[25%] bg-amber-300">
-          chart
+        <div className="w-[25%]">
+          <JobAppliedChart applications={applications} />
         </div>
 
         {/* 3 */}
